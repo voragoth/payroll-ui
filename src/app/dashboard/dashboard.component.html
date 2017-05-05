@@ -1,0 +1,28 @@
+<div class="top-separator"></div>
+<h2>Liquidaciones</h2>
+<div class="top-separator"></div>
+<app-spinner-loader *ngIf="loading" [loadingMessage]="loadingMessage"></app-spinner-loader>
+<div class="row" *ngIf="!loading">
+  <div class="col-md-2 card-bottom-margin" *ngFor="let wage of wages">
+    <div class="card">
+      <div class="card-header">
+        {{ wage.date }}<span class="badge badge-primary badge-margin-left">{{wage.periodicity}}</span><span  placement="top" ngbTooltip="Dias Trabajados / Con Licencia" class="badge badge-info badge-margin-left">{{ wage.workedDays }} | {{ wage.licencedDays }}</span>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-center">
+          $ {{ wage.grossTaxable | number }}<span class="badge badge-primary badge-margin-left">Sueldo Bruto</span>
+        </li>
+        <li class="list-group-item text-center">
+          $ {{ wage.netSalary | number }}<span class="badge badge-primary badge-margin-left">Sueldo Líquido</span>
+        </li>
+        <li class="list-group-item text-center">
+          $ {{ wage.grossTaxable | number }}<span class="badge badge-primary badge-margin-left">Sueldo Bruto</span>
+        </li>
+      </ul>
+      <div class="card-footer">
+        Options
+      </div>
+    </div>
+
+  </div>
+</div>

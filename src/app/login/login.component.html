@@ -1,0 +1,15 @@
+<ngb-alert *ngIf="alert" [dismissible]="true">
+  {{alertMessage}}
+</ngb-alert>
+<form class="form-signin" (ngSubmit)="login()" #loginForm="ngForm" *ngIf="!loading">
+  <div class="top-separator"></div>
+  <h2 class="form-signin-heading">Credenciales Payroll</h2>
+  <div class="top-separator"></div>
+  <label for="inputRut" class="sr-only">RUT</label>
+  <input type="text" id="inputRut" class="form-control" placeholder="12345678-9" name="user" [(ngModel)]="model.user" required autofocus>
+  <label for="inputPassword" class="sr-only">Contraseña</label>
+  <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" [(ngModel)]="model.password" required>
+  <div class="top-separator"></div>
+  <button class="btn btn-lg btn-primary btn-block" [disabled]="!loginForm.form.valid" type="submit">Acceder</button>
+</form>
+<app-spinner-loader *ngIf="loading" [loadingMessage]="loadingMessage"></app-spinner-loader>
